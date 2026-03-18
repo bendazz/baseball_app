@@ -1,0 +1,132 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #1a1a2e;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Header ── */
+header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #ffffff;
+    text-align: center;
+    padding: 0;
+}
+
+.header-bar {
+    height: 6px;
+    background: linear-gradient(90deg, #c0392b, #e74c3c, #c0392b);
+}
+
+.header-content {
+    padding: 2rem 1rem;
+}
+
+header h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.tagline {
+    margin-top: 0.4rem;
+    font-size: 1rem;
+    color: #8899aa;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+/* ── Main ── */
+main {
+    flex: 1;
+    max-width: 800px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* ── Season Select ── */
+.select-section {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #c0392b;
+}
+
+.select-section label {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
+    color: #1a1a2e;
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    content: '\25BC';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #c0392b;
+    font-size: 0.8rem;
+}
+
+#year-select {
+    width: 100%;
+    padding: 0.85rem 2.5rem 0.85rem 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.05rem;
+    border: 2px solid #dde1e7;
+    border-radius: 6px;
+    background: #fafbfc;
+    color: #1a1a2e;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#year-select:hover {
+    border-color: #c0392b;
+}
+
+#year-select:focus {
+    outline: none;
+    border-color: #c0392b;
+    box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.15);
+}
+
+#year-select:disabled {
+    cursor: wait;
+    opacity: 0.6;
+}
+
+/* ── Footer ── */
+footer {
+    background: #1a1a2e;
+    color: #8899aa;
+    text-align: center;
+    padding: 1.2rem;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}

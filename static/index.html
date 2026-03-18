@@ -3,9 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baseball App</title>
+    <title>Baseball Stats</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Baseball App</h1>
+    <header>
+        <div class="header-bar"></div>
+        <div class="header-content">
+            <h1>&#9918; Baseball Stats</h1>
+            <p class="tagline">Historical baseball statistics and records</p>
+        </div>
+        <div class="header-bar"></div>
+    </header>
+
+    <main>
+        <section class="select-section">
+            <label for="year-select">Select a Season</label>
+            <div class="select-wrapper">
+                <select id="year-select" disabled>
+                    <option value="">Loading seasons...</option>
+                </select>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Baseball Stats &copy; 2026</p>
+    </footer>
+
+    <script src="/script.js"></script>
 </body>
 </html>
