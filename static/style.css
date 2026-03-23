@@ -50,7 +50,7 @@ header h1 {
 /* ── Main ── */
 main {
     flex: 1;
-    max-width: 800px;
+    max-width: 960px;
     width: 100%;
     margin: 2rem auto;
     padding: 0 1rem;
@@ -119,6 +119,86 @@ main {
 #year-select:disabled {
     cursor: wait;
     opacity: 0.6;
+}
+
+/* ── Teams Section ── */
+.teams-section {
+    margin-top: 1.5rem;
+}
+
+.teams-section h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.2rem;
+    color: #1a1a2e;
+    text-align: center;
+}
+
+.loading {
+    text-align: center;
+    color: #8899aa;
+    padding: 2rem;
+    font-size: 1rem;
+}
+
+/* ── League Group ── */
+.league-group {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #c0392b;
+}
+
+.league-header {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #1a1a2e;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e74c3c;
+}
+
+/* ── Divisions Row ── */
+.divisions-row {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.division-block {
+    flex: 1;
+    min-width: 180px;
+}
+
+.division-header {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #c0392b;
+    margin-bottom: 0.5rem;
+}
+
+.division-block ul {
+    list-style: none;
+}
+
+.division-block li {
+    padding: 0.5rem 0.75rem;
+    background: #fafbfc;
+    border: 1px solid #dde1e7;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
 }
 
 /* ── Footer ── */
