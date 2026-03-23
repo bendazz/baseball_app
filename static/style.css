@@ -199,6 +199,57 @@ main {
     border-radius: 4px;
     font-size: 0.95rem;
     margin-bottom: 0.35rem;
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s;
+}
+
+.division-block li:hover {
+    background: #e8f0fe;
+    border-color: #c0392b;
+}
+
+.division-block li.active {
+    background: #c0392b;
+    color: #ffffff;
+    border-color: #c0392b;
+}
+
+/* ── Roster Section ── */
+.roster-section {
+    margin-top: 1.5rem;
+}
+
+.roster-section h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.2rem;
+    color: #1a1a2e;
+    text-align: center;
+}
+
+.roster-section .roster-list {
+    list-style: none;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #c0392b;
+    columns: 2;
+    column-gap: 2rem;
+}
+
+.roster-list li {
+    padding: 0.4rem 0.5rem;
+    border-bottom: 1px solid #eef0f3;
+    font-size: 0.95rem;
+    break-inside: avoid;
+}
+
+.roster-list li:last-child {
+    border-bottom: none;
 }
 
 /* ── Footer ── */

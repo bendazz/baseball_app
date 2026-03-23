@@ -15,14 +15,26 @@ async def get_years():
 async def get_teams(year: int):
     with Session(engine) as session:
         teams = session.exec(
-            select(Teams.name, Teams.lgID, Teams.divID)
+            select(Teams.teamID, Teams.name, Teams.lgID, Teams.divID)
             .where(Teams.yearID == year)
             .order_by(Teams.name)
         ).all()
-    return [{"name": name, "league": lg, "division": div} for name, lg, div in teams]
+    return [{"teamID": tid, "name": name, "league": lg, "division": div} for tid, name, lg, div in teams]
 
 
 
+
+@app.get("/roster")
+async def get_roster(year: int, team: str):
+    with Session(engine) as session:
+        players = session.exec(
+            select(People.nameFirst, People.nameLast)
+            .join(Batting, Batting.playerID == People.playerID)
+            .where(Batting.yearID == year, Batting.teamID == team)
+            .distinct()
+            .order_by(People.nameLast, People.nameFirst)
+        ).all()
+    return [{"first": first, "last": last} for first, last in players]
 
 
 app.mount("/", StaticFiles(directory="static", html=True), name="static")

@@ -30,7 +30,7 @@ function buildTeamsHTML(teams, year) {
         const div = t.division || "";
         if (!grouped[lg]) grouped[lg] = {};
         if (!grouped[lg][div]) grouped[lg][div] = [];
-        grouped[lg][div].push(t.name);
+        grouped[lg][div].push({ name: t.name, teamID: t.teamID });
     }
 
     const container = document.getElementById("teams-container");
@@ -65,9 +65,12 @@ function buildTeamsHTML(teams, year) {
             }
 
             const ul = document.createElement("ul");
-            for (const name of grouped[lg][div].sort()) {
+            for (const team of grouped[lg][div].sort((a, b) => a.name.localeCompare(b.name))) {
                 const li = document.createElement("li");
-                li.textContent = name;
+                li.className = "team-item";
+                li.textContent = team.name;
+                li.dataset.teamId = team.teamID;
+                li.addEventListener("click", () => loadRoster(year, team.teamID, team.name));
                 ul.appendChild(li);
             }
             divBlock.appendChild(ul);
@@ -76,6 +79,43 @@ function buildTeamsHTML(teams, year) {
 
         leagueDiv.appendChild(divisionsRow);
         container.appendChild(leagueDiv);
+    }
+}
+
+async function loadRoster(year, teamID, teamName) {
+    const section = document.getElementById("roster-section");
+    const heading = document.getElementById("roster-heading");
+    const container = document.getElementById("roster-container");
+
+    heading.textContent = `${teamName} — ${year} Roster`;
+    container.innerHTML = '<p class="loading">Loading roster...</p>';
+    section.hidden = false;
+    section.scrollIntoView({ behavior: "smooth" });
+
+    // highlight selected team
+    document.querySelectorAll(".team-item.active").forEach(el => el.classList.remove("active"));
+    document.querySelector(`.team-item[data-team-id="${teamID}"]`)?.classList.add("active");
+
+    try {
+        const response = await fetch(`/roster?year=${year}&team=${teamID}`);
+        const players = await response.json();
+
+        if (players.length === 0) {
+            container.innerHTML = '<p class="loading">No players found</p>';
+            return;
+        }
+
+        const ul = document.createElement("ul");
+        ul.className = "roster-list";
+        for (const p of players) {
+            const li = document.createElement("li");
+            li.textContent = `${p.first} ${p.last}`;
+            ul.appendChild(li);
+        }
+        container.innerHTML = "";
+        container.appendChild(ul);
+    } catch {
+        container.innerHTML = '<p class="loading">Failed to load roster</p>';
     }
 }
 
@@ -103,6 +143,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         const section = document.getElementById("teams-section");
         const container = document.getElementById("teams-container");
         const heading = document.getElementById("teams-heading");
+
+        document.getElementById("roster-section").hidden = true;
 
         if (!year) {
             section.hidden = true;
