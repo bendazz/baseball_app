@@ -246,10 +246,129 @@ main {
     border-bottom: 1px solid #eef0f3;
     font-size: 0.95rem;
     break-inside: avoid;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.roster-list li:hover {
+    background: #e8f0fe;
+}
+
+.roster-list li.active {
+    background: #c0392b;
+    color: #ffffff;
 }
 
 .roster-list li:last-child {
     border-bottom: none;
+}
+
+/* ── Player Section ── */
+.player-section {
+    margin-top: 1.5rem;
+}
+
+.player-section h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.2rem;
+    color: #1a1a2e;
+    text-align: center;
+}
+
+.player-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #c0392b;
+}
+
+.bio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 2rem;
+}
+
+.bio-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.bio-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8899aa;
+    margin-bottom: 0.15rem;
+}
+
+.bio-value {
+    font-size: 1rem;
+    color: #1a1a2e;
+}
+
+/* ── Batting Table ── */
+.batting-table-wrap {
+    overflow-x: auto;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #c0392b;
+}
+
+.batting-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.batting-table th {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: #1a1a2e;
+    color: #ffffff;
+    padding: 0.6rem 0.5rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+}
+
+.batting-table td {
+    padding: 0.45rem 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid #eef0f3;
+}
+
+.batting-table td:first-child,
+.batting-table td:nth-child(2) {
+    text-align: left;
+}
+
+.batting-table th:first-child,
+.batting-table th:nth-child(2) {
+    text-align: left;
+}
+
+.batting-table tbody tr:hover {
+    background: #e8f0fe;
+}
+
+.batting-table tbody tr:nth-child(even) {
+    background: #fafbfc;
+}
+
+.batting-table tbody tr:nth-child(even):hover {
+    background: #e8f0fe;
 }
 
 /* ── Footer ── */
